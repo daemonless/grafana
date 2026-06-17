@@ -1,0 +1,18 @@
+#!/bin/sh
+# Initialize grafana config + data layout on first run (everything under /config)
+
+mkdir -p /config/data /config/logs /config/plugins
+
+# Seed grafana.ini from the packaged sample on first run
+if [ ! -f /config/grafana.ini ]; then
+    cp /usr/local/etc/grafana/grafana.ini.sample /config/grafana.ini
+    echo "[grafana] Created /config/grafana.ini"
+fi
+
+# Seed provisioning tree (datasources/dashboards/alerting/plugins) on first run
+if [ ! -d /config/provisioning ]; then
+    cp -R /usr/local/etc/grafana/provisioning /config/provisioning
+    echo "[grafana] Created /config/provisioning"
+fi
+
+chown -R bsd:bsd /config

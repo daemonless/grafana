@@ -1,0 +1,16 @@
+#!/bin/sh
+# Grafana s6 service
+
+# All persistent state lives under the /config volume
+export GF_PATHS_CONFIG=/config/grafana.ini
+export GF_PATHS_DATA=/config/data
+export GF_PATHS_LOGS=/config/logs
+export GF_PATHS_PLUGINS=/config/plugins
+export GF_PATHS_PROVISIONING=/config/provisioning
+
+# Signal readiness to CIT once the HTTP API answers
+s6-ready-when fetch -qo /dev/null http://localhost:3000/api/health
+
+exec /usr/local/bin/s6-setuidgid bsd /usr/local/bin/grafana server \
+    -homepath=/usr/local/share/grafana \
+    -config="$GF_PATHS_CONFIG"
