@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-10T22:31:01Z",
+  "generated": "2026-07-12T20:46:01Z",
   "image": "grafana",
   "tags": {
     "pkg": {
-      "app_version": "12.4.2_3",
+      "app_version": "13.0.1_3",
       "arch": "amd64",
-      "generated": "2026-07-10T22:29:44Z",
+      "generated": "2026-07-12T20:32:03Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -143,7 +143,7 @@
           },
           {
             "name": "grafana",
-            "version": "12.4.2_3"
+            "version": "13.0.1_3"
           },
           {
             "name": "jq",
@@ -155,7 +155,7 @@
           },
           {
             "name": "pkg",
-            "version": "2.6.2_1"
+            "version": "2.7.5"
           },
           {
             "name": "s6",
@@ -185,11 +185,11 @@
           },
           {
             "name": "cloud.google.com/go",
-            "version": "v0.121.4"
+            "version": "v0.123.0"
           },
           {
             "name": "cloud.google.com/go/auth",
-            "version": "v0.16.3"
+            "version": "v0.17.0"
           },
           {
             "name": "cloud.google.com/go/auth/oauth2adapt",
@@ -201,15 +201,15 @@
           },
           {
             "name": "cloud.google.com/go/iam",
-            "version": "v1.5.2"
+            "version": "v1.5.3"
           },
           {
             "name": "cloud.google.com/go/monitoring",
-            "version": "v1.24.2"
+            "version": "v1.24.3"
           },
           {
             "name": "cloud.google.com/go/storage",
-            "version": "v1.55.0"
+            "version": "v1.56.0"
           },
           {
             "name": "connectrpc.com/connect",
@@ -233,11 +233,11 @@
           },
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
-            "version": "v1.19.1"
+            "version": "v1.20.0"
           },
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/azidentity",
-            "version": "v1.12.0"
+            "version": "v1.13.1"
           },
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/internal",
@@ -261,7 +261,7 @@
           },
           {
             "name": "github.com/AzureAD/microsoft-authentication-library-for-go",
-            "version": "v1.5.0"
+            "version": "v1.6.0"
           },
           {
             "name": "github.com/BurntSushi/toml",
@@ -277,11 +277,11 @@
           },
           {
             "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric",
-            "version": "v0.53.0"
+            "version": "v0.54.0"
           },
           {
             "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping",
-            "version": "v0.53.0"
+            "version": "v0.54.0"
           },
           {
             "name": "github.com/IBM/pgxpoolprometheus",
@@ -325,7 +325,7 @@
           },
           {
             "name": "github.com/VividCortex/mysqlerr",
-            "version": "v0.0.0-20170204212430-6c6b55f8796f"
+            "version": "v1.0.0"
           },
           {
             "name": "github.com/Yiling-J/theine-go",
@@ -349,7 +349,7 @@
           },
           {
             "name": "github.com/apache/arrow-go/v18",
-            "version": "v18.5.1"
+            "version": "v18.5.2"
           },
           {
             "name": "github.com/apache/thrift",
@@ -385,7 +385,7 @@
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream",
-            "version": "v1.6.11"
+            "version": "v1.7.3"
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/config",
@@ -401,7 +401,7 @@
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/feature/s3/manager",
-            "version": "v1.17.84"
+            "version": "v1.20.3"
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/internal/configsources",
@@ -417,7 +417,7 @@
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/internal/v4a",
-            "version": "v1.3.36"
+            "version": "v1.4.13"
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/cloudwatch",
@@ -437,7 +437,7 @@
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/internal/checksum",
-            "version": "v1.7.4"
+            "version": "v1.9.4"
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
@@ -445,7 +445,7 @@
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/internal/s3shared",
-            "version": "v1.18.17"
+            "version": "v1.19.13"
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/oam",
@@ -457,7 +457,7 @@
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/s3",
-            "version": "v1.84.0"
+            "version": "v1.89.2"
           },
           {
             "name": "github.com/aws/aws-sdk-go-v2/service/signin",
@@ -576,10 +576,6 @@
             "version": "v16.2.8"
           },
           {
-            "name": "github.com/bluele/gcache",
-            "version": "v0.0.2"
-          },
-          {
             "name": "github.com/bradfitz/gomemcache",
             "version": "v0.0.0-20250403215159-8d39553ac7cf"
           },
@@ -616,10 +612,6 @@
             "version": "v0.17.0"
           },
           {
-            "name": "github.com/cespare/xxhash",
-            "version": "v1.1.0"
-          },
-          {
             "name": "github.com/cespare/xxhash/v2",
             "version": "v2.3.0"
           },
@@ -630,6 +622,14 @@
           {
             "name": "github.com/chromedp/cdproto",
             "version": "v0.0.0-20250803210736-d308e07a266d"
+          },
+          {
+            "name": "github.com/clipperhouse/displaywidth",
+            "version": "v0.10.0"
+          },
+          {
+            "name": "github.com/clipperhouse/uax29/v2",
+            "version": "v2.6.0"
           },
           {
             "name": "github.com/cloudflare/circl",
@@ -665,7 +665,7 @@
           },
           {
             "name": "github.com/dgraph-io/badger/v4",
-            "version": "v4.7.0"
+            "version": "v4.9.1"
           },
           {
             "name": "github.com/dgraph-io/ristretto/v2",
@@ -713,7 +713,7 @@
           },
           {
             "name": "github.com/elazarl/goproxy",
-            "version": "v1.8.0"
+            "version": "v1.8.2"
           },
           {
             "name": "github.com/emicklei/go-restful/v3",
@@ -773,7 +773,7 @@
           },
           {
             "name": "github.com/go-jose/go-jose/v4",
-            "version": "v4.1.3"
+            "version": "v4.1.4"
           },
           {
             "name": "github.com/go-kit/log",
@@ -797,23 +797,23 @@
           },
           {
             "name": "github.com/go-openapi/analysis",
-            "version": "v0.24.1"
+            "version": "v0.24.3"
           },
           {
             "name": "github.com/go-openapi/errors",
-            "version": "v0.22.4"
+            "version": "v0.22.7"
           },
           {
             "name": "github.com/go-openapi/jsonpointer",
-            "version": "v0.22.4"
+            "version": "v0.22.5"
           },
           {
             "name": "github.com/go-openapi/jsonreference",
-            "version": "v0.21.4"
+            "version": "v0.21.5"
           },
           {
             "name": "github.com/go-openapi/loads",
-            "version": "v0.23.2"
+            "version": "v0.23.3"
           },
           {
             "name": "github.com/go-openapi/runtime",
@@ -821,11 +821,11 @@
           },
           {
             "name": "github.com/go-openapi/spec",
-            "version": "v0.22.3"
+            "version": "v0.22.4"
           },
           {
             "name": "github.com/go-openapi/strfmt",
-            "version": "v0.25.0"
+            "version": "v0.26.0"
           },
           {
             "name": "github.com/go-openapi/swag",
@@ -837,27 +837,27 @@
           },
           {
             "name": "github.com/go-openapi/swag/conv",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/fileutils",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/jsonname",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/jsonutils",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/loading",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/mangling",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/netutils",
@@ -865,23 +865,23 @@
           },
           {
             "name": "github.com/go-openapi/swag/stringutils",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/typeutils",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/yamlutils",
-            "version": "v0.25.4"
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/validate",
-            "version": "v0.25.1"
+            "version": "v0.25.2"
           },
           {
-            "name": "github.com/go-redis/redis/v8",
-            "version": "v8.11.5"
+            "name": "github.com/go-redsync/redsync/v4",
+            "version": "v4.13.0"
           },
           {
             "name": "github.com/go-sourcemap/sourcemap",
@@ -897,7 +897,7 @@
           },
           {
             "name": "github.com/go-viper/mapstructure/v2",
-            "version": "v2.4.0"
+            "version": "v2.5.0"
           },
           {
             "name": "github.com/gobwas/glob",
@@ -1001,7 +1001,7 @@
           },
           {
             "name": "github.com/googleapis/enterprise-certificate-proxy",
-            "version": "v0.3.6"
+            "version": "v0.3.7"
           },
           {
             "name": "github.com/googleapis/gax-go/v2",
@@ -1017,15 +1017,15 @@
           },
           {
             "name": "github.com/grafana/alerting",
-            "version": "v0.0.0-20260206150146-b5f69c55f91a"
+            "version": "v0.0.0-20260330164719-5946ccd00861"
           },
           {
             "name": "github.com/grafana/authlib",
-            "version": "v0.0.0-20260203153107-16a114a99f67"
+            "version": "v0.0.0-20260316143530-e1d123886039"
           },
           {
             "name": "github.com/grafana/authlib/types",
-            "version": "v0.0.0-20260203131350-b83e80394acc"
+            "version": "v0.0.0-20260316143530-e1d123886039"
           },
           {
             "name": "github.com/grafana/cue",
@@ -1053,11 +1053,11 @@
           },
           {
             "name": "github.com/grafana/grafana-app-sdk",
-            "version": "v0.50.2"
+            "version": "v0.52.1"
           },
           {
             "name": "github.com/grafana/grafana-app-sdk/logging",
-            "version": "v0.50.2"
+            "version": "v0.51.4"
           },
           {
             "name": "github.com/grafana/grafana-aws-sdk",
@@ -1065,11 +1065,11 @@
           },
           {
             "name": "github.com/grafana/grafana-azure-sdk-go/v2",
-            "version": "v2.3.1"
+            "version": "v2.4.0"
           },
           {
             "name": "github.com/grafana/grafana-cloud-migration-snapshot",
-            "version": "v1.9.0"
+            "version": "v1.10.0"
           },
           {
             "name": "github.com/grafana/grafana-google-sdk-go",
@@ -1077,7 +1077,11 @@
           },
           {
             "name": "github.com/grafana/grafana-plugin-sdk-go",
-            "version": "v0.287.0"
+            "version": "v0.291.0"
+          },
+          {
+            "name": "github.com/grafana/grafana-prometheus-datasource/pkg/promlib",
+            "version": "v0.0.10"
           },
           {
             "name": "github.com/grafana/grafana/apps/advisor",
@@ -1176,11 +1180,11 @@
             "version": ""
           },
           {
-            "name": "github.com/grafana/grafana/pkg/plugins",
+            "name": "github.com/grafana/grafana/pkg/infra/features",
             "version": ""
           },
           {
-            "name": "github.com/grafana/grafana/pkg/promlib",
+            "name": "github.com/grafana/grafana/pkg/plugins",
             "version": ""
           },
           {
@@ -1193,7 +1197,7 @@
           },
           {
             "name": "github.com/grafana/jsonparser",
-            "version": "v0.0.0-20240425183733-ea80629e1a32"
+            "version": "v0.0.0-20241004153430-023329977675"
           },
           {
             "name": "github.com/grafana/loki/pkg/push",
@@ -1201,7 +1205,7 @@
           },
           {
             "name": "github.com/grafana/loki/v3",
-            "version": "v3.2.1"
+            "version": "v3.5.11"
           },
           {
             "name": "github.com/grafana/memberlist",
@@ -1209,7 +1213,7 @@
           },
           {
             "name": "github.com/grafana/nanogit",
-            "version": "v0.3.0"
+            "version": "v0.13.0"
           },
           {
             "name": "github.com/grafana/otel-profiling-go",
@@ -1217,7 +1221,7 @@
           },
           {
             "name": "github.com/grafana/prometheus-alertmanager",
-            "version": "v0.25.1-0.20260112162805-d29cc9cf7f0f"
+            "version": "v0.25.1-0.20260225120258-18275ca76b0c"
           },
           {
             "name": "github.com/grafana/pyroscope-go/godeltaprof",
@@ -1225,7 +1229,7 @@
           },
           {
             "name": "github.com/grafana/pyroscope/api",
-            "version": "v1.2.1-0.20251118081820-ace37f973a0f"
+            "version": "v1.2.1-0.20251202111406-6c67b876b686"
           },
           {
             "name": "github.com/grafana/regexp",
@@ -1257,7 +1261,7 @@
           },
           {
             "name": "github.com/grpc-ecosystem/grpc-gateway/v2",
-            "version": "v2.27.7"
+            "version": "v2.28.0"
           },
           {
             "name": "github.com/hashicorp/consul/api",
@@ -1437,11 +1441,15 @@
           },
           {
             "name": "github.com/klauspost/compress",
-            "version": "v1.18.2"
+            "version": "v1.18.4"
           },
           {
             "name": "github.com/klauspost/cpuid/v2",
             "version": "v2.3.0"
+          },
+          {
+            "name": "github.com/klauspost/pgzip",
+            "version": "v1.2.6"
           },
           {
             "name": "github.com/kylelemons/godebug",
@@ -1493,11 +1501,7 @@
           },
           {
             "name": "github.com/mattn/go-runewidth",
-            "version": "v0.0.16"
-          },
-          {
-            "name": "github.com/mattn/go-sqlite3",
-            "version": "v1.14.32"
+            "version": "v0.0.19"
           },
           {
             "name": "github.com/matttproud/golang_protobuf_extensions",
@@ -1565,7 +1569,7 @@
           },
           {
             "name": "github.com/moby/moby",
-            "version": "v28.0.1+incompatible"
+            "version": "v28.5.2+incompatible"
           },
           {
             "name": "github.com/modern-go/concurrent",
@@ -1628,16 +1632,24 @@
             "version": "v2.1.1"
           },
           {
+            "name": "github.com/olekukonko/cat",
+            "version": "v0.0.0-20250911104152-50322a0618f6"
+          },
+          {
+            "name": "github.com/olekukonko/errors",
+            "version": "v1.2.0"
+          },
+          {
+            "name": "github.com/olekukonko/ll",
+            "version": "v0.1.6"
+          },
+          {
             "name": "github.com/olekukonko/tablewriter",
-            "version": "v0.0.5"
+            "version": "v1.1.4"
           },
           {
             "name": "github.com/open-feature/go-sdk",
-            "version": "v1.17.0"
-          },
-          {
-            "name": "github.com/open-feature/go-sdk-contrib/providers/go-feature-flag",
-            "version": "v0.2.6"
+            "version": "v1.17.1"
           },
           {
             "name": "github.com/open-feature/go-sdk-contrib/providers/ofrep",
@@ -1665,7 +1677,7 @@
           },
           {
             "name": "github.com/opentracing/opentracing-go",
-            "version": "v1.2.0"
+            "version": "v1.2.1-0.20220228012449-10b1cf09e00b"
           },
           {
             "name": "github.com/openzipkin/zipkin-go",
@@ -1685,7 +1697,7 @@
           },
           {
             "name": "github.com/pierrec/lz4/v4",
-            "version": "v4.1.23"
+            "version": "v4.1.25"
           },
           {
             "name": "github.com/pires/go-proxyproto",
@@ -1701,7 +1713,7 @@
           },
           {
             "name": "github.com/planetscale/vtprotobuf",
-            "version": "v0.6.1-0.20240319094008-0393e58bdf10"
+            "version": "v0.6.1-0.20250313105119-ba97887b0a25"
           },
           {
             "name": "github.com/pmezard/go-difflib",
@@ -1752,6 +1764,10 @@
             "version": "v2.5.1"
           },
           {
+            "name": "github.com/puzpuzpuz/xsync/v4",
+            "version": "v4.4.0"
+          },
+          {
             "name": "github.com/quagmt/udecimal",
             "version": "v1.9.0"
           },
@@ -1761,15 +1777,11 @@
           },
           {
             "name": "github.com/redis/rueidis",
-            "version": "v1.0.68"
+            "version": "v1.0.72"
           },
           {
             "name": "github.com/remyoudompheng/bigfft",
             "version": "v0.0.0-20230129092748-24d4a6f8daec"
-          },
-          {
-            "name": "github.com/rivo/uniseg",
-            "version": "v0.4.7"
           },
           {
             "name": "github.com/rs/cors",
@@ -1824,8 +1836,8 @@
             "version": "v1.9.3"
           },
           {
-            "name": "github.com/sony/gobreaker",
-            "version": "v0.5.0"
+            "name": "github.com/sony/gobreaker/v2",
+            "version": "v2.1.0"
           },
           {
             "name": "github.com/sourcegraph/conc",
@@ -1877,7 +1889,7 @@
           },
           {
             "name": "github.com/tjhop/slog-gokit",
-            "version": "v0.1.5"
+            "version": "v0.1.6"
           },
           {
             "name": "github.com/ua-parser/uap-go",
@@ -1933,7 +1945,7 @@
           },
           {
             "name": "github.com/zeebo/xxh3",
-            "version": "v1.0.2"
+            "version": "v1.1.0"
           },
           {
             "name": "go.etcd.io/bbolt",
@@ -1950,10 +1962,6 @@
           {
             "name": "go.etcd.io/etcd/client/v3",
             "version": "v3.6.7"
-          },
-          {
-            "name": "go.mongodb.org/mongo-driver",
-            "version": "v1.17.6"
           },
           {
             "name": "go.opentelemetry.io/auto/sdk",
@@ -1981,27 +1989,27 @@
           },
           {
             "name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
-            "version": "v0.64.0"
+            "version": "v0.67.0"
           },
           {
             "name": "go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace",
-            "version": "v0.64.0"
+            "version": "v0.67.0"
           },
           {
             "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
-            "version": "v0.64.0"
+            "version": "v0.67.0"
           },
           {
             "name": "go.opentelemetry.io/contrib/propagators/jaeger",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/contrib/samplers/jaegerremote",
-            "version": "v0.33.0"
+            "version": "v0.36.0"
           },
           {
             "name": "go.opentelemetry.io/otel",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/otel/exporters/jaeger",
@@ -2025,15 +2033,15 @@
           },
           {
             "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
-            "version": "v1.39.0"
+            "version": "v1.40.0"
           },
           {
             "name": "go.opentelemetry.io/otel/exporters/prometheus",
@@ -2057,11 +2065,11 @@
           },
           {
             "name": "go.opentelemetry.io/otel/metric",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/otel/sdk",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/otel/sdk/log",
@@ -2069,11 +2077,11 @@
           },
           {
             "name": "go.opentelemetry.io/otel/sdk/metric",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/otel/trace",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/proto/otlp",
@@ -2109,11 +2117,11 @@
           },
           {
             "name": "gocloud.dev",
-            "version": "v0.43.0"
+            "version": "v0.44.0"
           },
           {
             "name": "golang.org/x/crypto",
-            "version": "v0.47.0"
+            "version": "v0.49.0"
           },
           {
             "name": "golang.org/x/exp",
@@ -2121,35 +2129,35 @@
           },
           {
             "name": "golang.org/x/net",
-            "version": "v0.49.0"
+            "version": "v0.52.0"
           },
           {
             "name": "golang.org/x/oauth2",
-            "version": "v0.34.0"
+            "version": "v0.36.0"
           },
           {
             "name": "golang.org/x/sync",
-            "version": "v0.19.0"
+            "version": "v0.20.0"
           },
           {
             "name": "golang.org/x/sys",
-            "version": "v0.40.0"
+            "version": "v0.42.0"
           },
           {
             "name": "golang.org/x/term",
-            "version": "v0.39.0"
+            "version": "v0.41.0"
           },
           {
             "name": "golang.org/x/text",
-            "version": "v0.33.0"
+            "version": "v0.35.0"
           },
           {
             "name": "golang.org/x/time",
-            "version": "v0.14.0"
+            "version": "v0.15.0"
           },
           {
             "name": "golang.org/x/tools",
-            "version": "v0.41.0"
+            "version": "v0.42.0"
           },
           {
             "name": "golang.org/x/xerrors",
@@ -2165,19 +2173,19 @@
           },
           {
             "name": "google.golang.org/api",
-            "version": "v0.242.0"
+            "version": "v0.256.0"
           },
           {
             "name": "google.golang.org/genproto",
-            "version": "v0.0.0-20250715232539-7130f93afb79"
+            "version": "v0.0.0-20260128011058-8636f8732409"
           },
           {
             "name": "google.golang.org/genproto/googleapis/api",
-            "version": "v0.0.0-20260128011058-8636f8732409"
+            "version": "v0.0.0-20260209200024-4cfbd4190f57"
           },
           {
             "name": "google.golang.org/genproto/googleapis/rpc",
-            "version": "v0.0.0-20260128011058-8636f8732409"
+            "version": "v0.0.0-20260226221140-a57be14db171"
           },
           {
             "name": "google.golang.org/grpc",
@@ -2197,7 +2205,7 @@
           },
           {
             "name": "gopkg.in/ini.v1",
-            "version": "v1.67.0"
+            "version": "v1.67.1"
           },
           {
             "name": "gopkg.in/mail.v2",
@@ -2225,27 +2233,27 @@
           },
           {
             "name": "k8s.io/api",
-            "version": "v0.35.0"
+            "version": "v0.35.3"
           },
           {
             "name": "k8s.io/apiextensions-apiserver",
-            "version": "v0.35.0"
+            "version": "v0.35.1"
           },
           {
             "name": "k8s.io/apimachinery",
-            "version": "v0.35.0"
+            "version": "v0.35.3"
           },
           {
             "name": "k8s.io/apiserver",
-            "version": "v0.35.0"
+            "version": "v0.35.1"
           },
           {
             "name": "k8s.io/client-go",
-            "version": "v0.35.0"
+            "version": "v0.35.3"
           },
           {
             "name": "k8s.io/component-base",
-            "version": "v0.35.0"
+            "version": "v0.35.1"
           },
           {
             "name": "k8s.io/klog/v2",
@@ -2253,7 +2261,7 @@
           },
           {
             "name": "k8s.io/kms",
-            "version": "v0.35.0"
+            "version": "v0.35.1"
           },
           {
             "name": "k8s.io/kube-aggregator",
@@ -2269,7 +2277,7 @@
           },
           {
             "name": "modernc.org/libc",
-            "version": "v1.67.6"
+            "version": "v1.70.0"
           },
           {
             "name": "modernc.org/mathutil",
@@ -2281,7 +2289,7 @@
           },
           {
             "name": "modernc.org/sqlite",
-            "version": "v1.44.3"
+            "version": "v1.47.0"
           },
           {
             "name": "sigs.k8s.io/apiserver-network-proxy/konnectivity-client",
@@ -2297,15 +2305,19 @@
           },
           {
             "name": "sigs.k8s.io/structured-merge-diff/v6",
-            "version": "v6.3.1"
+            "version": "v6.3.2"
           },
           {
             "name": "sigs.k8s.io/yaml",
             "version": "v1.6.0"
           },
           {
+            "name": "software.sslmate.com/src/go-pkcs12",
+            "version": "v0.7.0"
+          },
+          {
             "name": "stdlib",
-            "version": "v1.25.11"
+            "version": "v1.25.12"
           },
           {
             "name": "xorm.io/builder",
@@ -2315,64 +2327,60 @@
         "java": [],
         "node": [
           {
-            "name": "@grafana-plugins/elasticsearch",
-            "version": "12.4.2"
-          },
-          {
             "name": "@grafana-plugins/grafana-azure-monitor-datasource",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/grafana-postgresql-datasource",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/grafana-pyroscope-datasource",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/grafana-testdata-datasource",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/graphite",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/jaeger",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/loki",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/mssql",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/mysql",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/opentsdb",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/parca",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/stackdriver",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/tempo",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           },
           {
             "name": "@grafana-plugins/zipkin",
-            "version": "12.4.2"
+            "version": "13.0.0-pre"
           }
         ],
         "php": [],
@@ -2384,20 +2392,20 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 39,
-        "go": 536,
+        "go": 539,
         "java": 0,
-        "node": 15,
+        "node": 14,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 590
+        "total": 592
       }
     },
     "pkg-latest": {
-      "app_version": "13.0.1_2",
+      "app_version": "13.0.1_3",
       "arch": "amd64",
-      "generated": "2026-07-10T22:28:37Z",
+      "generated": "2026-07-12T20:44:45Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -2535,7 +2543,7 @@
           },
           {
             "name": "grafana",
-            "version": "13.0.1_2"
+            "version": "13.0.1_3"
           },
           {
             "name": "jq",
@@ -4709,7 +4717,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.25.11"
+            "version": "v1.25.12"
           },
           {
             "name": "xorm.io/builder",
