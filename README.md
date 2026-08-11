@@ -20,7 +20,7 @@ Grafana is an open source and composable observability and data visualization pl
 ## Version Tags
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
-| `latest` / `pkg` | Installed from the FreeBSD quarterly package repository. | Most users. Matches Linux Docker behavior. |
+| `latest` / `pkg` | Installed from the FreeBSD quarterly package repository. | Most users — recommended. |
 | `pkg-latest` | Installed from the FreeBSD latest package repository. | Alternative build. |
 
 ## Prerequisites
@@ -71,7 +71,7 @@ services:
     name: grafana
     options:
       - container: 'boot args:--pull'
-      - expose: '3000:3000 proto:tcp' \
+      - expose: '3000:3000 proto:tcp'
     oci:
       user: root
       environment:
