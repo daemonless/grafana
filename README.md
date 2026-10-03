@@ -58,11 +58,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
-      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-}
       - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
       - GF_DATABASE_USER=${GF_DATABASE_USER:-}
       - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
-      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-}
 
     volumes:
       - /path/to/containers/grafana:/config
@@ -105,11 +105,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
-      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-}
       - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
       - GF_DATABASE_USER=${GF_DATABASE_USER:-}
       - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
-      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-}
 
     volumes:
       - /path/to/containers/grafana:/config
@@ -163,11 +163,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
-      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-}
       - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
       - GF_DATABASE_USER=${GF_DATABASE_USER:-}
       - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
-      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-}
 
     volumes:
       - /path/to/containers/grafana:/config
@@ -218,11 +218,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
-      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-}
       - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
       - GF_DATABASE_USER=${GF_DATABASE_USER:-}
       - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
-      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-}
 
     volumes:
       - /path/to/containers/grafana:/config
@@ -250,7 +250,7 @@ GF_DATABASE_TYPE=sqlite3
 GF_DATABASE_HOST=
 GF_DATABASE_USER=
 GF_DATABASE_PASSWORD=<GF_DATABASE_PASSWORD>
-GF_DATABASE_NAME=grafana
+GF_DATABASE_NAME=
 ```
 
 **appjail-director.yml**:
@@ -553,11 +553,11 @@ Access at: `http://localhost:3000`
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
-| `GF_DATABASE_TYPE` | `sqlite3` | sqlite3, postgres or mysql; set by the Database choice |
+| `GF_DATABASE_TYPE` | `` | sqlite3, postgres or mysql; set by the Database choice. Empty keeps grafana.ini |
 | `GF_DATABASE_HOST` | `` | Database host, optionally host:port (Database choice) |
 | `GF_DATABASE_USER` | `` | Database user (Database choice) |
 | `GF_DATABASE_PASSWORD` | `<GF_DATABASE_PASSWORD>` | Database password (Database choice) |
-| `GF_DATABASE_NAME` | `grafana` | Database name (Database choice) |
+| `GF_DATABASE_NAME` | `` | Database name (Database choice) |
 
 ### Volumes
 
