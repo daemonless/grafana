@@ -31,26 +31,212 @@ Before deploying, ensure your host environment is ready. See the [Quick Start Gu
 
 ### Podman Compose
 
-```yaml
-services:
-  grafana:
-    image: "ghcr.io/daemonless/grafana:latest"
-    container_name: grafana
-    environment:
-      - PUID=1000  # User ID for the application process
-      - PGID=1000  # Group ID for the application process
-      - TZ=UTC  # Timezone for the container
-    volumes:
-      - "/path/to/containers/grafana:/config"
-    ports:
-      - "3000:3000"
-    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
-    restart: always
+**Database.** Where the app keeps its data. The default needs nothing else running.
+
+#### SQLite (default)
+
+A file in the app's config folder. Right for one person, nothing extra to run.
+
+**1.** Save as `.env` and fill in what is empty:
+
+```env { data-zip-bundle="grafana-podman" data-zip-filename=".env" }
+
 ```
 
-Save as `compose.yaml`, then run `podman-compose up -d`.
+**2.** Save as `compose.yaml`:
+
+```yaml { data-zip-bundle="grafana-podman" data-zip-filename="compose.yaml" }
+name: grafana
+
+services:
+  grafana:
+    image: ghcr.io/daemonless/grafana:pkg
+    container_name: grafana
+    restart: unless-stopped
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
+      - GF_DATABASE_USER=${GF_DATABASE_USER:-}
+      - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+
+    volumes:
+      - /path/to/containers/grafana:/config
+
+    ports:
+      - 3000:3000
+```
+
+Then run `podman-compose up -d`.
+
+#### PostgreSQL
+
+One more container, its data in its own folder. For a household, or an app that wants it.
+
+**1.** Save as `.env` and fill in what is empty:
+
+```env { data-zip-bundle="grafana-podman-database-postgres" data-zip-filename=".env" }
+# Database: PostgreSQL
+GF_DATABASE_TYPE=postgres
+GF_DATABASE_HOST=postgres
+GF_DATABASE_USER=grafana
+GF_DATABASE_PASSWORD=  # set one
+GF_DATABASE_NAME=grafana
+DATABASE_LOCATION=/containers/grafana/postgres
+```
+
+**2.** Save as `compose.yaml`:
+
+```yaml { data-zip-bundle="grafana-podman-database-postgres" data-zip-filename="compose.yaml" }
+name: grafana
+
+services:
+  grafana:
+    depends_on: [postgres]
+    image: ghcr.io/daemonless/grafana:pkg
+    container_name: grafana
+    restart: unless-stopped
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
+      - GF_DATABASE_USER=${GF_DATABASE_USER:-}
+      - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+
+    volumes:
+      - /path/to/containers/grafana:/config
+
+    ports:
+      - 3000:3000
+  postgres:
+    image: ghcr.io/daemonless/postgres:17
+    restart: always
+    annotations:
+      org.freebsd.jail.allow.sysvipc: "true"
+    environment:
+      - POSTGRES_USER=${GF_DATABASE_USER}
+      - POSTGRES_PASSWORD=${GF_DATABASE_PASSWORD}
+      - POSTGRES_DB=${GF_DATABASE_NAME}
+    volumes:
+      - "${DATABASE_LOCATION}:/var/lib/postgresql/data"
+```
+
+Then run `podman-compose up -d`.
+
+#### MariaDB
+
+One more container, its data in its own folder. If you already know MariaDB, or the app prefers it.
+
+**1.** Save as `.env` and fill in what is empty:
+
+```env { data-zip-bundle="grafana-podman-database-mariadb" data-zip-filename=".env" }
+# Database: MariaDB
+GF_DATABASE_TYPE=mysql
+GF_DATABASE_HOST=mariadb
+GF_DATABASE_USER=grafana
+GF_DATABASE_PASSWORD=  # set one
+GF_DATABASE_NAME=grafana
+DATABASE_LOCATION=/containers/grafana/mariadb
+```
+
+**2.** Save as `compose.yaml`:
+
+```yaml { data-zip-bundle="grafana-podman-database-mariadb" data-zip-filename="compose.yaml" }
+name: grafana
+
+services:
+  grafana:
+    depends_on: [mariadb]
+    image: ghcr.io/daemonless/grafana:pkg
+    container_name: grafana
+    restart: unless-stopped
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
+      - GF_DATABASE_USER=${GF_DATABASE_USER:-}
+      - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+
+    volumes:
+      - /path/to/containers/grafana:/config
+
+    ports:
+      - 3000:3000
+  mariadb:
+    image: ghcr.io/daemonless/mariadb:11.4
+    restart: always
+    environment:
+      - MYSQL_USER=${GF_DATABASE_USER}
+      - MYSQL_PASSWORD=${GF_DATABASE_PASSWORD}
+      - MYSQL_DATABASE=${GF_DATABASE_NAME}
+      - MYSQL_ROOT_PASSWORD=${GF_DATABASE_PASSWORD}
+    volumes:
+      - "${DATABASE_LOCATION}:/config"
+```
+
+Then run `podman-compose up -d`.
+
+#### Your own
+
+A database you already run, here or on another machine. Nothing extra runs; you give the address and the account.
+
+**1.** Save as `.env` and fill in Kind, Host, User, Password, Database:
+
+```env { data-zip-bundle="grafana-podman-database-external" data-zip-filename=".env" }
+# Database: Your own
+GF_DATABASE_TYPE=  # Kind: postgres | mysql
+GF_DATABASE_HOST=  # Host
+GF_DATABASE_USER=  # User
+GF_DATABASE_PASSWORD=  # Password
+GF_DATABASE_NAME=  # Database
+```
+
+**2.** Save as `compose.yaml`:
+
+```yaml { data-zip-bundle="grafana-podman-database-external" data-zip-filename="compose.yaml" }
+name: grafana
+
+services:
+  grafana:
+    image: ghcr.io/daemonless/grafana:pkg
+    container_name: grafana
+    restart: unless-stopped
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
+      - GF_DATABASE_USER=${GF_DATABASE_USER:-}
+      - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+
+    volumes:
+      - /path/to/containers/grafana:/config
+
+    ports:
+      - 3000:3000
+```
+
+Then run `podman-compose up -d`.
 
 ### AppJail Director
+
+#### SQLite (default)
+
 **.env**:
 
 ```
@@ -60,6 +246,11 @@ DIRECTOR_PROJECT=grafana
 PUID=1000
 PGID=1000
 TZ=UTC
+GF_DATABASE_TYPE=sqlite3
+GF_DATABASE_HOST=
+GF_DATABASE_USER=
+GF_DATABASE_PASSWORD=<GF_DATABASE_PASSWORD>
+GF_DATABASE_NAME=grafana
 ```
 
 **appjail-director.yml**:
@@ -82,11 +273,16 @@ services:
         - PUID: !ENV '${PUID}'
         - PGID: !ENV '${PGID}'
         - TZ: !ENV '${TZ}'
+        - GF_DATABASE_TYPE: !ENV '${GF_DATABASE_TYPE}'
+        - GF_DATABASE_HOST: !ENV '${GF_DATABASE_HOST}'
+        - GF_DATABASE_USER: !ENV '${GF_DATABASE_USER}'
+        - GF_DATABASE_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+        - GF_DATABASE_NAME: !ENV '${GF_DATABASE_NAME}'
     volumes:
       - grafana: /config
 volumes:
   grafana:
-    device: '/path/to/containers/grafana'
+    device: '/containers/grafana'
 ```
 
 **Makejail**:
@@ -103,102 +299,248 @@ OPTION from=ghcr.io/daemonless/grafana:${tag}
 
 Save the files above, then run `appjail-director up`.
 
+#### PostgreSQL
 
-> [!WARNING]
-> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
->
-> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
+**.env**:
 
-### Podman CLI
+```
+# .env
 
-```bash
-podman run -d --name grafana \
-  -p 3000:3000 \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -v /path/to/containers/grafana:/config \
-  ghcr.io/daemonless/grafana:latest
+DIRECTOR_PROJECT=grafana
+PUID=1000
+PGID=1000
+TZ=UTC
+GF_DATABASE_TYPE=postgres
+GF_DATABASE_HOST=grafana_postgres
+GF_DATABASE_USER=grafana
+GF_DATABASE_PASSWORD=
+GF_DATABASE_NAME=grafana
+DATABASE_LOCATION=/containers/grafana/postgres
 ```
 
-Save as `run.sh`, then run `sh run.sh`.
-
-### AppJail
-
-
-```bash
-appjail oci run -Pd \
-  -o overwrite=force \
-  -o container="args:--pull" \
-  -o virtualnet=":<random> default" \
-  -o nat \
-  -o expose="3000:3000 proto:tcp" \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -o fstab="/path/to/containers/grafana /config <pseudofs>" \
-  ghcr.io/daemonless/grafana:latest grafana
-```
-
-Save the files above, then run `sh run.sh`.
-
-
-> [!WARNING]
-> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
->
-> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
-
-### Bastille
-
-> [!WARNING]
-> Bastille's OCI support is **experimental**. It requires `buildah` and shares the host network stack (`inherit`). Mount volumes with `--volume HOST JAIL`; without it, image-declared volumes are stored under `${bastille_volumesdir}/${jail}`.
+**appjail-director.yml**:
 
 ```yaml
+# appjail-director.yml
+
+options:
+  - virtualnet: ':<random> default'
+  - nat:
 services:
   grafana:
     name: grafana
-    image: "ghcr.io/daemonless/grafana:latest"
-    network:
-      - mode: host
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=UTC
+    options:
+      - container: 'args:--pull'
+      - expose: '3000:3000 proto:tcp'
+    oci:
+      user: root
+      environment:
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+        - GF_DATABASE_TYPE: !ENV '${GF_DATABASE_TYPE}'
+        - GF_DATABASE_HOST: !ENV '${GF_DATABASE_HOST}'
+        - GF_DATABASE_USER: !ENV '${GF_DATABASE_USER}'
+        - GF_DATABASE_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+        - GF_DATABASE_NAME: !ENV '${GF_DATABASE_NAME}'
     volumes:
-      - "/path/to/containers/grafana:/config"
+      - grafana: /config
+  grafana-postgres:
+    name: grafana_postgres
+    priority: 10
+    options:
+      - from: ghcr.io/daemonless/postgres:17
+      - template: !ENV '${PWD}/postgres-template.conf'
+    oci:
+      environment:
+        - POSTGRES_USER: !ENV '${GF_DATABASE_USER}'
+        - POSTGRES_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+        - POSTGRES_DB: !ENV '${GF_DATABASE_NAME}'
+    volumes:
+      - database: /var/lib/postgresql/data
+volumes:
+  grafana:
+    device: '/containers/grafana'
+  database:
+    device: !ENV '${DATABASE_LOCATION}'
 ```
 
-Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
+**Makejail**:
 
-```bash
-bastille create -O \
-  --env PUID=1000 \
-  --env PGID=1000 \
-  --env TZ=UTC \
-  --volume /path/to/containers/grafana /config \
-  grafana ghcr.io/daemonless/grafana:latest inherit
+```
+# Makejail
+
+ARG tag=latest
+
+OPTION container=boot
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/grafana:${tag}
 ```
 
-### Ansible
+**postgres-template.conf**:
+
+```
+# The jail PostgreSQL runs in: SysV shared memory, which a jail does not
+# get by default. ip4/ip6 are set here because the director's ip4_inherit
+# option is a no-op in AppJail 5.5.0.
+
+exec.start: "/bin/sh /etc/rc"
+exec.stop: "/bin/sh /etc/rc.shutdown jail"
+sysvmsg: new
+sysvsem: new
+sysvshm: new
+mount.devfs
+persist
+ip4: inherit
+ip6: inherit
+```
+
+Save the files above, then run `appjail-director up`.
+
+#### MariaDB
+
+**.env**:
+
+```
+# .env
+
+DIRECTOR_PROJECT=grafana
+PUID=1000
+PGID=1000
+TZ=UTC
+GF_DATABASE_TYPE=mysql
+GF_DATABASE_HOST=grafana_mariadb
+GF_DATABASE_USER=grafana
+GF_DATABASE_PASSWORD=
+GF_DATABASE_NAME=grafana
+DATABASE_LOCATION=/containers/grafana/mariadb
+```
+
+**appjail-director.yml**:
 
 ```yaml
-- name: Deploy grafana
-  containers.podman.podman_container:
+# appjail-director.yml
+
+options:
+  - virtualnet: ':<random> default'
+  - nat:
+services:
+  grafana:
     name: grafana
-    image: "ghcr.io/daemonless/grafana:latest"
-    state: started
-    restart_policy: always
-    env:
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
-    ports:
-      - "3000:3000"
+    options:
+      - container: 'args:--pull'
+      - expose: '3000:3000 proto:tcp'
+    oci:
+      user: root
+      environment:
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+        - GF_DATABASE_TYPE: !ENV '${GF_DATABASE_TYPE}'
+        - GF_DATABASE_HOST: !ENV '${GF_DATABASE_HOST}'
+        - GF_DATABASE_USER: !ENV '${GF_DATABASE_USER}'
+        - GF_DATABASE_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+        - GF_DATABASE_NAME: !ENV '${GF_DATABASE_NAME}'
     volumes:
-      - "/path/to/containers/grafana:/config"
+      - grafana: /config
+  grafana-mariadb:
+    name: grafana_mariadb
+    priority: 10
+    options:
+      - from: ghcr.io/daemonless/mariadb:11.4
+      - template: !ENV '${PWD}/template.conf'
+    oci:
+      environment:
+        - MYSQL_USER: !ENV '${GF_DATABASE_USER}'
+        - MYSQL_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+        - MYSQL_DATABASE: !ENV '${GF_DATABASE_NAME}'
+        - MYSQL_ROOT_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+    volumes:
+      - database: /config
+volumes:
+  grafana:
+    device: '/containers/grafana'
+  database:
+    device: !ENV '${DATABASE_LOCATION}'
 ```
 
-Save as `grafana-deploy.yaml`, then run `ansible-playbook grafana-deploy.yaml`.
+**Makejail**:
+
+```
+# Makejail
+
+ARG tag=latest
+
+OPTION container=boot
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/grafana:${tag}
+```
+
+Save the files above, then run `appjail-director up`.
+
+#### Your own
+
+**.env**:
+
+```
+# .env
+
+DIRECTOR_PROJECT=grafana
+PUID=1000
+PGID=1000
+TZ=UTC
+GF_DATABASE_TYPE=
+GF_DATABASE_HOST=
+GF_DATABASE_USER=
+GF_DATABASE_PASSWORD=
+GF_DATABASE_NAME=
+```
+
+**appjail-director.yml**:
+
+```yaml
+# appjail-director.yml
+
+options:
+  - virtualnet: ':<random> default'
+  - nat:
+services:
+  grafana:
+    name: grafana
+    options:
+      - container: 'args:--pull'
+      - expose: '3000:3000 proto:tcp'
+    oci:
+      user: root
+      environment:
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+        - GF_DATABASE_TYPE: !ENV '${GF_DATABASE_TYPE}'
+        - GF_DATABASE_HOST: !ENV '${GF_DATABASE_HOST}'
+        - GF_DATABASE_USER: !ENV '${GF_DATABASE_USER}'
+        - GF_DATABASE_PASSWORD: !ENV '${GF_DATABASE_PASSWORD}'
+        - GF_DATABASE_NAME: !ENV '${GF_DATABASE_NAME}'
+    volumes:
+      - grafana: /config
+volumes:
+  grafana:
+    device: '/containers/grafana'
+```
+
+**Makejail**:
+
+```
+# Makejail
+
+ARG tag=latest
+
+OPTION container=boot
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/grafana:${tag}
+```
+
+Save the files above, then run `appjail-director up`.
 
 Access at: `http://localhost:3000`
 
@@ -211,6 +553,11 @@ Access at: `http://localhost:3000`
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
+| `GF_DATABASE_TYPE` | `sqlite3` | sqlite3, postgres or mysql; set by the Database choice |
+| `GF_DATABASE_HOST` | `` | Database host, optionally host:port (Database choice) |
+| `GF_DATABASE_USER` | `` | Database user (Database choice) |
+| `GF_DATABASE_PASSWORD` | `<GF_DATABASE_PASSWORD>` | Database password (Database choice) |
+| `GF_DATABASE_NAME` | `grafana` | Database name (Database choice) |
 
 ### Volumes
 

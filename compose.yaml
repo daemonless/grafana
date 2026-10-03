@@ -13,11 +13,31 @@ x-daemonless:
   community: "Discord:https://discord.gg/Kb9tkhecZT"
   appjail: true
 
+  choices:
+    database:
+      kind: database
+      offers: [sqlite, postgres, mariadb, external]
+      default: sqlite
+      env:
+        type: GF_DATABASE_TYPE
+        host: GF_DATABASE_HOST
+        user: GF_DATABASE_USER
+        password: GF_DATABASE_PASSWORD
+        name: GF_DATABASE_NAME
+      types:
+        sqlite: sqlite3
+        mariadb: mysql
+
   docs:
     env:
       PUID: "User ID for the application process"
       PGID: "Group ID for the application process"
       TZ: "Timezone for the container"
+      GF_DATABASE_TYPE: "sqlite3, postgres or mysql; set by the Database choice"
+      GF_DATABASE_HOST: "Database host, optionally host:port (Database choice)"
+      GF_DATABASE_USER: "Database user (Database choice)"
+      GF_DATABASE_PASSWORD: "Database password (Database choice)"
+      GF_DATABASE_NAME: "Database name (Database choice)"
     volumes:
       /config: "Configuration, data, logs, plugins and provisioning"
     ports:
@@ -33,6 +53,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
+      - GF_DATABASE_USER=${GF_DATABASE_USER:-}
+      - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
 
     volumes:
       - /path/to/containers/grafana:/config
