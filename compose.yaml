@@ -33,7 +33,7 @@ x-daemonless:
       PUID: "User ID for the application process"
       PGID: "Group ID for the application process"
       TZ: "Timezone for the container"
-      GF_DATABASE_TYPE: "sqlite3, postgres or mysql; set by the Database choice"
+      GF_DATABASE_TYPE: "sqlite3, postgres or mysql; set by the Database choice. Empty keeps grafana.ini"
       GF_DATABASE_HOST: "Database host, optionally host:port (Database choice)"
       GF_DATABASE_USER: "Database user (Database choice)"
       GF_DATABASE_PASSWORD: "Database password (Database choice)"
@@ -53,11 +53,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
-      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-sqlite3}
+      - GF_DATABASE_TYPE=${GF_DATABASE_TYPE:-}
       - GF_DATABASE_HOST=${GF_DATABASE_HOST:-}
       - GF_DATABASE_USER=${GF_DATABASE_USER:-}
       - GF_DATABASE_PASSWORD=${GF_DATABASE_PASSWORD:-}
-      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-grafana}
+      - GF_DATABASE_NAME=${GF_DATABASE_NAME:-}
 
     volumes:
       - /path/to/containers/grafana:/config
