@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-11T07:30:56Z",
+  "generated": "2026-10-12T09:54:44Z",
   "image": "grafana",
   "tags": {
     "pkg-amd64": {
-      "app_version": "13.1.1_3",
+      "app_version": "13.1.1_4",
       "arch": "amd64",
-      "generated": "2026-10-11T07:29:44Z",
+      "generated": "2026-10-12T08:40:54Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -266,7 +266,7 @@
               "AGPLv3"
             ],
             "name": "grafana",
-            "version": "13.1.1_3"
+            "version": "13.1.1_4"
           },
           {
             "licenses": [
@@ -3043,7 +3043,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.8"
+            "version": "v1.26.9"
           },
           {
             "name": "xorm.io/builder",
@@ -3144,9 +3144,9 @@
       }
     },
     "pkg-latest-amd64": {
-      "app_version": "13.1.1_3",
+      "app_version": "13.1.1_4",
       "arch": "amd64",
-      "generated": "2026-10-11T07:29:51Z",
+      "generated": "2026-10-12T09:53:33Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3393,7 +3393,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
@@ -3407,7 +3407,7 @@
               "AGPLv3"
             ],
             "name": "grafana",
-            "version": "13.1.1_3"
+            "version": "13.1.1_4"
           },
           {
             "licenses": [
@@ -6184,7 +6184,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.8"
+            "version": "v1.27.2"
           },
           {
             "name": "xorm.io/builder",

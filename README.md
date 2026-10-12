@@ -345,7 +345,7 @@ services:
         - GF_DATABASE_NAME: !ENV '${GF_DATABASE_NAME}'
     volumes:
       - grafana: /config
-  grafana-postgres:
+  postgres:
     name: grafana_postgres
     priority: 10
     options:
@@ -443,7 +443,7 @@ services:
         - GF_DATABASE_NAME: !ENV '${GF_DATABASE_NAME}'
     volumes:
       - grafana: /config
-  grafana-mariadb:
+  mariadb:
     name: grafana_mariadb
     priority: 10
     options:
