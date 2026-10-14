@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-12T10:32:07Z",
+  "generated": "2026-10-14T19:06:29Z",
   "image": "grafana",
   "tags": {
     "pkg-aarch64": {
       "app_version": "13.1.1_3",
       "arch": "aarch64",
-      "generated": "2026-10-12T10:30:32Z",
+      "generated": "2026-10-14T19:05:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3144,9 +3144,9 @@
       }
     },
     "pkg-latest-aarch64": {
-      "app_version": "13.1.1_3",
+      "app_version": "13.1.1_4",
       "arch": "aarch64",
-      "generated": "2026-10-12T10:30:37Z",
+      "generated": "2026-10-14T19:05:19Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3407,7 +3407,7 @@
               "AGPLv3"
             ],
             "name": "grafana",
-            "version": "13.1.1_3"
+            "version": "13.1.1_4"
           },
           {
             "licenses": [
@@ -6184,7 +6184,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.8"
+            "version": "v1.27.2"
           },
           {
             "name": "xorm.io/builder",
