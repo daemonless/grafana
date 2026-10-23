@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T08:49:09Z",
+  "generated": "2026-10-23T19:06:36Z",
   "image": "grafana",
   "tags": {
     "pkg-aarch64": {
       "app_version": "13.1.1_4",
       "arch": "aarch64",
-      "generated": "2026-10-23T08:47:52Z",
+      "generated": "2026-10-23T19:05:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3125,7 +3125,7 @@
     "pkg-latest-aarch64": {
       "app_version": "13.1.1_4",
       "arch": "aarch64",
-      "generated": "2026-10-23T08:47:56Z",
+      "generated": "2026-10-23T19:05:20Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
