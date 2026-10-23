@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------
 
 ARG BASE_VERSION=15.1
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PKG_NAME="grafana"
@@ -35,9 +35,12 @@ RUN pkg update && \
 
 # Copy root filesystem
 COPY root/ /
+RUN chmod +x /daemonless/libexec/grafana /daemonless/init.d/*
+
+CMD ["/daemonless/libexec/grafana"]
 
 # Set permissions
-RUN chmod +x /etc/services.d/grafana/run /healthz /etc/cont-init.d/20-grafana-config
+RUN chmod +x /healthz
 
 # Expose
 EXPOSE 3000
