@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T22:43:56Z",
+  "generated": "2026-11-03T09:38:47Z",
   "image": "grafana",
   "tags": {
     "pkg-aarch64": {
-      "app_version": "13.1.1_4",
+      "app_version": "13.1.1_5",
       "arch": "aarch64",
-      "generated": "2026-10-23T22:42:31Z",
+      "generated": "2026-11-03T09:36:56Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -259,7 +259,7 @@
               "AGPLv3"
             ],
             "name": "grafana",
-            "version": "13.1.1_4"
+            "version": "13.1.1_5"
           },
           {
             "licenses": [
@@ -3022,7 +3022,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.9"
+            "version": "v1.26.10"
           },
           {
             "name": "xorm.io/builder",
@@ -3123,9 +3123,9 @@
       }
     },
     "pkg-latest-aarch64": {
-      "app_version": "13.1.1_4",
+      "app_version": "13.1.1_5",
       "arch": "aarch64",
-      "generated": "2026-10-23T22:42:36Z",
+      "generated": "2026-11-03T09:37:01Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3309,7 +3309,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -3379,7 +3379,7 @@
               "AGPLv3"
             ],
             "name": "grafana",
-            "version": "13.1.1_4"
+            "version": "13.1.1_5"
           },
           {
             "licenses": [
@@ -6142,7 +6142,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.27.2"
+            "version": "v1.27.3"
           },
           {
             "name": "xorm.io/builder",
