@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-03T09:38:47Z",
+  "generated": "2026-11-04T13:38:25Z",
   "image": "grafana",
   "tags": {
     "pkg-aarch64": {
       "app_version": "13.1.1_5",
       "arch": "aarch64",
-      "generated": "2026-11-03T09:36:56Z",
+      "generated": "2026-11-04T13:36:37Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -252,7 +252,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -3125,7 +3125,7 @@
     "pkg-latest-aarch64": {
       "app_version": "13.1.1_5",
       "arch": "aarch64",
-      "generated": "2026-11-03T09:37:01Z",
+      "generated": "2026-11-04T13:36:42Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3372,7 +3372,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
